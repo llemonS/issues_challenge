@@ -16,3 +16,15 @@ class IssueView(ModelViewSet):
     serializer_class = IssueSerializer
     permission_classes = (AllowAny,)
     queryset = Issue.objects.all()
+
+    def create(self, request, *args, **kwargs):
+        print(f"Issue created: {request.data}")
+        return super().create(request, *args, **kwargs)
+    
+    def update(self, request, *args, **kwargs):
+        print(f"Issue updated: {request.data}")
+        return super().update(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        print(f"Issue deleted: {request.data}")
+        return super().destroy(request, *args, **kwargs)
